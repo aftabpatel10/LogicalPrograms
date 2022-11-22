@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,19 @@ namespace LogicalPrograme
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number of Coupens required:");
-            int CoupenLength = Convert.ToInt32(Console.ReadLine());
-            int[] totalCoupons = new int[CoupenLength];
-            int randomNum;
-            Random random = new Random();
-            for (int i = 0; i < totalCoupons.Length; i++)
+            var sw = stopwatch.StartNew();
+            Console.WriteLine("Start the timer by pressing any key");
+            String timerStart = Console.ReadLine();
+            while (timerStart != null)
             {
-            moving:
-                randomNum = random.Next();
-                for (int x = 0; x < totalCoupons.Length; x++)
-                {
-                    if (totalCoupons[x] == randomNum)
-                    {
-                        x--;
-                        goto moving;
-                    }
-                }
-                totalCoupons[i] = randomNum;
+                sw.Start(); //to start the timer 
+                Console.WriteLine("Stop the timer by pressing any key");
+                Console.ReadLine();
+                sw.Stop(); //To stop the timer
+                break;
             }
-            for (int i = 0; i < totalCoupons.Length; i++)
-            {
-                Console.WriteLine(totalCoupons[i] + " ");
-            }
+            Console.WriteLine("Time elapsed :{0}ms", sw.ElapsedTicks);
+            Console.ReadLine();
         }
     }
 }
