@@ -11,23 +11,30 @@ namespace LogicalPrograme
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Monthly Payment  Program");
-            Console.WriteLine("Please enter the loan amount you want to have");
-            double P = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Please enter the loan time in years:");
-            double Y = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Rate of Interest will be :");
-            double R = Convert.ToDouble(Console.ReadLine());
-            //formulation steps
-            double n = 12 * Y;
-            double r = R / (12 * 100);
-            double upsideCalculation = P * r;
-            double downsideAddition = 1 + r;
-            double downsideRaisedToCalculation = Math.Pow(downsideAddition, -n);
-            double downsideCalculation = 1 - downsideRaisedToCalculation;
-            double monthlyPayment = upsideCalculation / downsideCalculation;
-            Console.WriteLine($"Monthly Payment will be : {monthlyPayment}");
-            Console.ReadLine();
+            Console.WriteLine("Temperature Conversion  Program");
+            Console.WriteLine("Press 1 for temperature conversion from celsius to fahrenheit \n" +
+                               "Press 1 for temperature conversion from fahrenheit to celsius\n");
+            int num = Convert.ToInt32(Console.ReadLine());
+            switch (num)
+            {
+                case 1:
+                    Console.WriteLine("Enter temperature in Fahrenheit:");
+                    double fahrenheitInput = Convert.ToDouble(Console.ReadLine());
+                    double celsiusOutput = (fahrenheitInput - 32) * 5 / 9;
+                    Console.WriteLine("Temperature in Celsius is :" + celsiusOutput);
+                    Console.ReadLine();
+                    break;
+                case 2:
+                    Console.WriteLine("Enter temperature in celsius:");
+                    double celsiusInput = Convert.ToDouble(Console.ReadLine());
+                    double fahrenheitOutput = (celsiusInput * 9 / 5) + 32;
+                    Console.WriteLine("Temperature in fahrenheit is :" + fahrenheitOutput);
+                    Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("Invalid Option");
+                    break;
+            }
         }
     }
 }
