@@ -10,19 +10,29 @@ namespace LogicalPrograme
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Logical Programs");
-            Console.WriteLine("Prime Number Program");
-            Console.WriteLine("Enter the number to be checked:");
-            int n = Convert.ToInt32(Console.ReadLine());
-            int reverse = 0, rem;
-            while (n != 0)
+            Console.WriteLine("Enter the number of Coupens required:");
+            int CoupenLength = Convert.ToInt32(Console.ReadLine());
+            int[] totalCoupons = new int[CoupenLength];
+            int randomNum;
+            Random random = new Random();
+            for (int i = 0; i < totalCoupons.Length; i++)
             {
-                rem = n % 10;
-                reverse = reverse * 10 + rem;
-                n = n / 10;
+            moving:
+                randomNum = random.Next();
+                for (int x = 0; x < totalCoupons.Length; x++)
+                {
+                    if (totalCoupons[x] == randomNum)
+                    {
+                        x--;
+                        goto moving;
+                    }
+                }
+                totalCoupons[i] = randomNum;
             }
-            Console.WriteLine("Reversed Number is :" + reverse);
-            Console.ReadLine();
+            for (int i = 0; i < totalCoupons.Length; i++)
+            {
+                Console.WriteLine(totalCoupons[i] + " ");
+            }
         }
     }
 }
