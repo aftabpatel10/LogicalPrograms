@@ -11,17 +11,26 @@ namespace LogicalPrograme
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Logical Programs");
-            Console.WriteLine("Fibonacci Program");
-            Console.WriteLine("Enter the number of elements:");
+            Console.WriteLine("Perfect Number Program");
+            Console.WriteLine("Enter the number to be checked:");
             int n = Convert.ToInt32(Console.ReadLine());
-            int n1 = 0, n2 = 1, n3;
-            Console.Write(n1 + " " + n2 + " ");
-            for (int i = 2; i < n; i++)
+            int sum = 0, num;
+            num = n;
+            for (int i = 1; i < n; i++)
             {
-                n3 = n1 + n2;
-                Console.Write(n3 + " ");
-                n1 = n2;
-                n2 = n3;
+                if (n % i == 0)
+                {
+                    sum = sum + i;
+                }
+
+            }
+            if (sum == num)
+            {
+                Console.WriteLine("The number is a perfect number");
+            }
+            else
+            {
+                Console.WriteLine("The number is not a perfect number");
             }
             Console.ReadLine();
         }
