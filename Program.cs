@@ -11,18 +11,17 @@ namespace LogicalPrograme
     {
         static void Main(string[] args)
         {
-            var sw = stopwatch.StartNew();
-            Console.WriteLine("Start the timer by pressing any key");
-            String timerStart = Console.ReadLine();
-            while (timerStart != null)
+            Console.WriteLine("SquareRoot Program");
+            Console.WriteLine("Enter the number to find squareroot:");
+            int num = Convert.ToInt32(Console.ReadLine());
+            float squareRoot = num / 2;
+            float temp = 0;
+            while (squareRoot != temp)
             {
-                sw.Start(); //to start the timer 
-                Console.WriteLine("Stop the timer by pressing any key");
-                Console.ReadLine();
-                sw.Stop(); //To stop the timer
-                break;
+                temp = squareRoot;
+                squareRoot = (num / temp + temp) / 2;
             }
-            Console.WriteLine("Time elapsed :{0}ms", sw.ElapsedTicks);
+            Console.WriteLine($"Square Root of {num} is :" + squareRoot);
             Console.ReadLine();
         }
     }
