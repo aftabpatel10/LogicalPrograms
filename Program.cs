@@ -14,22 +14,14 @@ namespace LogicalPrograme
             Console.WriteLine("Prime Number Program");
             Console.WriteLine("Enter the number to be checked:");
             int n = Convert.ToInt32(Console.ReadLine());
-            int sum = 0;
-            for (int i = 1; i <= n; i++)
+            int reverse = 0, rem;
+            while (n != 0)
             {
-                if (n % i == 0)
-                {
-                    sum++;
-                }
+                rem = n % 10;
+                reverse = reverse * 10 + rem;
+                n = n / 10;
             }
-            if (sum == 2)
-            {
-                Console.WriteLine("The number is a prime number");
-            }
-            else
-            {
-                Console.WriteLine("The number is not a prime number");
-            }
+            Console.WriteLine("Reversed Number is :" + reverse);
             Console.ReadLine();
         }
     }
